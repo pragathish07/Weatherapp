@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/87495ed978.js" crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>weather dashboard</title>
+  </head>
+<body>
+
+<!--   <div>
+    <p id="temp"></p>
+    <p id="hum"></p>
+    <p id="place"></p>
+    <p id="ws"> </p>
+  </div> -->
+<div class="wrap">
+<div class="wrapper">
+  <div class="navigation">
+
+    <div class="logo">
+      <img src="Thunder.png" alt="" class="logo-img">
+      <a href=""><p>weather.io</p></a>
+    </div>
+
+  <div class="menubar">
+
+
+    <div class="menu">
+      <i class="fa-solid fa-cloud"></i>
+      <p onclick="show()">Dashboard</p>
+    </div>
+    <div class="menu">
+      <i class="fa-solid fa-list"></i>
+      <p onclick="hide()">Cities</p>
+    </div>
+
+<!--     <div class="button-cover">
+      <div class="button r" id="button-1">
+        <input type="checkbox" class="checkbox" />
+        <div class="knobs"></div>
+        <div class="layer"></div>
+      </div>
+    </div> -->
+
+    <form class="color-picker" action="">
+    <fieldset>
+       <legend class="visually-hidden">Pick a color scheme</legend>
+        <label for="light" class="visually-hidden">Light</label>
+         <input type="radio" name="theme" id="light" checked>
+
+    <label for="dark" class="visually-hidden">Pink theme</label>
+    <input type="radio" id="dark" name="theme">
+    </fieldset>
+    </form>
+  </div>
+  
+ </div>
+
+
+
+<div class="container hidden">
+   <div class="search center">
+    <input type="text" class="input" placeholder="Search for Cities">
+    <button id="search-btn"><i class="fa fa-search"></i></button>
+  </div>
+ <div id="hide">
+
+  <main>
+    <div class="block">
+      <div class="inner-blk">
+        <h1 id="city">Chennai</h1>
+        <p id="desc">cloudy</p>
+        <p id="temp" style="font-size: 3rem;">23° <span class="unit-temp">C</span> </p>
+        
+      </div>
+      <div class="astro">
+          <div class="srise">
+            <div class="sr" ><img src="/Resources/sunrise.png" alt="" class="sunrise" style="width: 2rem;"><span>Sunrise</span></div>
+           <h4 id="srise"> 6:00AM</h4>
+          </div>
+          <div class="sset">
+            <div class="sr"><img src="/Resources/sunset.png" alt="" class="sunset" style="width: 2rem;"><span>Sunset</span></div>
+            <h4 id="sset"> 6:00PM</h4>
+          </div>
+          <div>
+          <span>Feel's Like</span>
+          <h4 id="feel">25°C </h4>
+          </div>
+
+        </div>
+      
+        <img src="/Resources/Sun.png" alt="" id="hero-img">
+         
+    </div>
+  </main>
+
+
+ <section>
+ <!--      <h4 class="title">TODAY'S FORECAST</h4>
+ -->     
+  <section class="forecast">
+    <div class="hour">
+          <p style="text-align: center;">6:00AM</p style="text-align: center;">
+          <img src="/Resources/sun clouds.png" alt="" class="imgs">
+          <h3 id="hr-temp">25° <span class="unit-temp">C</span> </h3>
+    </div>
+    <div class="hour">
+      <p style="text-align: center;">9:00AM</p style="text-align: center;">
+      <img src="/Resources/sun clouds.png" alt="" class="imgs">
+      <h3 id="hr-temp1">32° <span class="unit-temp">C</span> </h3>
+    </div>
+    <div class="hour">
+      <p style="text-align: center;">12:00PM</p style="text-align: center;">
+      <img src="/Resources/sun clouds.png" alt="" class="imgs">
+      <h3 id="hr-temp2">32° <span class="unit-temp">C</span> </h3>
+    </div>
+    <div class="hour">
+      <p style="text-align: center;">3:00PM</p style="text-align: center;">
+      <img src="/Resources/sun clouds.png" alt="" class="imgs" >
+      <h3 id="hr-temp3">32° <span class="unit-temp">C</span> </h3>
+    </div>
+    <div class="hour">
+      <p style="text-align: center;">6:00PM</p style="text-align: center;">
+      <img src="/Resources/sun clouds.png" alt="" class="imgs">
+      <h3 id="hr-temp4">32° <span class="unit-temp">C</span> </h3>
+    </div>
+    <div class="hour">
+      <p style="text-align: center;">9:00PM</p style="text-align: center;">
+      <img src="/Resources/sun clouds.png" alt="" class="imgs">
+      <h3 id="hr-temp5">32° <span class="unit-temp"></span> </h3>
+    </div>
+
+   </section>
+ </section>
+
+  <section class="conditions">
+    <h3 class="title">CONDITIONS</h3>
+
+    <div class="grid">
+      <div class="g-items">
+        <div class="innerg">
+          <i class="fa-solid fa-temperature-half"></i>
+          <h4>Humidity</h4>
+        </div>
+        <p id="humidity">5</p>
+      </div>
+      <div class="g-items">
+        <div class="innerg">
+          <i class="fa-solid fa-droplet"></i>
+          <h4>chance of rain</h4>
+        </div>
+        <p id="rain"> 0</p>
+      </div>
+      <div class="g-items">
+        <div class="innerg">
+          <i class="fa-solid fa-wind"></i>
+          <h4>wind speed</h4>
+        </div>
+        <p id="ws">5 km/h</p>
+      </div>
+      <div class="g-items">
+        <div class="innerg">
+          <i class="fa-solid fa-temperature-three-quarters"></i>
+            <h4>Min temp/Max temp</h4>
+        </div>
+        <span class="span" id="mintemp">1</span>/<span class="span" id="maxtemp">1</span>
+      </div>
+      <div class="g-items">
+        <div class="innerg">
+          <i class="fa-regular fa-air-conditioner"></i>
+            <h4>air purity</h4>
+        </div>
+        <p id="air">1</p>
+      </div>
+      <div class="g-items">
+        <div class="innerg">
+          <i></i>
+            <h4>Precipitation</h4>
+        </div>
+        <p id="precip">1</p>
+      </div>
+
+    </div>
+  </section>
+</div>
+</div>
+
+<div class="container2 hidden">
+  <h3 class="title" style="text-align: center;">7 DAY FORECAST</h3>
+  
+  <div class="days">
+    <h5>Mon</h5>
+    <div class="days-desc"><img src="/Resources/sun rain.png" alt=""><p id="f-desc">sunny</p></div>
+    <p id="daytemp">32° <span class="unit-temp">C</span> </p>
+  </div>
+  <div class="days">
+    <h5>Tue</h5>
+    <div class="days-desc"><img src="/Resources/sun rain.png" alt=""><p id="f-desc1">sunny</p></div>
+    <p id="daytemp1">32° <span class="unit-temp">C</span> </p>
+  </div>
+  <div class="days">
+    <h5>Wed</h5>
+    <div class="days-desc"><img src="/Resources/sun rain.png" alt=""><p id="f-desc2">sunny</p></div>
+    <p id="daytemp2">32° <span class="unit-temp">C</span> </p>
+  </div>
+  <div class="days">
+    <h5>Thu</h5>
+    <div class="days-desc"><img src="/Resources/sun rain.png" alt=""><p id="f-desc3">sunny</p></div>
+    <p id="daytemp3">32° <span class="unit-temp">C</span> </p>
+  </div>
+  <div class="days">
+    <h5>Fri</h5>
+    <div class="days-desc"><img src="/Resources/sun rain.png" alt=""><p id="f-desc4">sunny</p></div>
+    <p id="daytemp4">32° <span class="unit-temp">C</span> </p>
+  </div>
+  <div class="days">
+    <h5>Sat</h5>
+    <div class="days-desc"><img src="/Resources/sun rain.png" alt=""><p id="f-desc5">sunny</p></div>
+    <p id="daytemp5">32° <span class="unit-temp">C</span> </p>
+  </div>
+  <div class="days">
+    <h5>Sun</h5>
+    <div class="days-desc"><img src="/Resources/sun rain.png" alt=""><p id="f-desc6">sunny</p></div>
+    <p id="daytemp6">25° <span class="unit-temp">C</span> </p>
+</div>
+
+ </div>
+</div>
+
+
+<div class="wrapper2">
+<div class="c-main hidden">
+  <div class="city">
+    <div class="cty-blk">
+      <img src="/Resources/Moon clouds.png" alt="" class="c-img">
+      <h3 class="cty-name">Tiruvananthapuram
+      </h3>
+    </div>
+    <div class="cty-temp">
+      <h2 class="cty-tempt">22°C</h2>
+    </div>
+  </div>
+  <div class="city">
+    <div class="cty-blk">
+      <img src="/Resources/Moon clouds.png" alt="" class="c-img">
+      <h3 class="cty-name">Bangalore
+      </h3>
+    </div>
+    <div class="cty-temp">
+      <h2 class="cty-tempt cty-tempt1">31°C</h2>
+    </div>
+  </div>
+  <div class="city">
+    <div class="cty-blk">
+      <img src="/Resources/Moon clouds.png" alt="" class="c-img">
+      <h3 class="cty-name">Mumbai
+      </h3>
+    </div>
+    <div class="cty-temp">
+      <h2 class="cty-tempt cty-tempt2">32°C</h2>
+    </div>
+  </div>
+  <div class="city">
+    <div class="cty-blk">
+      <img src="/Resources/Moon clouds.png" alt="" class="c-img">
+      <h3 class="cty-name">Kolkata
+      </h3>
+    </div>
+    <div class="cty-temp3">
+      <h2 class="cty-tempt cty-tempt3">22°C</h2>
+    </div>
+  </div>
+</div>
+
+  <section class="wrap-blk hidden">
+    <div class="c-block">
+      <div class="inner-blk">
+        <div><h1 id="city">Chennai</h1>
+        <p id="desc">cloudy</p>
+        <p id="temp" style="font-size: 3rem;">23°C</p> </div> 
+      </div> 
+      <img src="/Resources/Sun.png" alt="" id="hero-img">
+    </div>
+       
+
+
+      <section class="c-forecast">
+        <div class="hour">
+              <p style="text-align: center;">6:00AM</p style="text-align: center;">
+              <img src="/Resources/sun clouds.png" alt="" class="c-imgs">
+              <h3>27°C</h3>
+        </div>
+        <div class="hour">
+          <p style="text-align: center;">12:00PM</p style="text-align: center;">
+          <img src="/Resources/sun clouds.png" alt="" class="c-imgs">
+          <h3>33°C</h3>
+        </div>
+        <div class="hour">
+          <p style="text-align: center;">6:00PM</p style="text-align: center;">
+          <img src="/Resources/sun clouds.png" alt="" class="c-imgs">
+          <h3>29°C</h3>
+        </div>
+      </section>
+      <div class="c-container2">
+        <h3 class="title" style="text-align: center;">3 DAY FORECAST</h3>
+        
+        <div class="days">
+          <h5>Mon</h5>
+          <div class="days-desc"><img src="/Resources/sun rain.png" alt=""><p>Patchy rain</p></div>
+          <p id="daytemp">32°C</p>
+        </div>
+        <div class="days">
+          <h5>Tue</h5>
+          <div class="days-desc"><img src="/Resources/sun rain.png" alt=""><p>Cloudy</p></div>
+          <p id="daytemp">31°C</p>
+        </div>
+        <div class="days">
+          <h5>Wed</h5>
+          <div class="days-desc"><img src="/Resources/sun rain.png" alt=""><p>Patchy rain</p></div>
+          <p id="daytemp">28°C</p>
+        </div>
+  
+  </section>
+
+  
+</div>
+  
+      
+</div>
+</div>
+
+
+    <section id="intropage">
+      <div class="wrapper3">
+        <div class="intro">
+          <div class="i-logo">
+            <img src="/Resources/Thunder.png" alt="" class="logoo">
+            <h1 class="heading">Weather.io</h1>
+          </div>
+          <p class="description">A Simple and Interactive Weather Forecasting Dasboard.</p>
+
+            <button id="intro-btn">Get Weathers</button>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="cont">
+        <div class="col col1">
+          <div class="content">
+          <h1>Pragathish</h1>
+          <p style="font-weight: 600;">Frontend Developer</p>
+          <div><i class="fa-solid fa-envelope" style="margin-right:10px;"></i><span>iampragathish@gmail.com</span></div>
+          </div>
+          <div class="wapi">
+            Powered by <a href="https://www.weatherapi.com/" title="Free Weather API" style="color:#fff;">WeatherAPI.com</a><br>
+            <a href="https://www.weatherapi.com/" title="Free Weather API"><img src='//cdn.weatherapi.com/v4/images/weatherapi_logo.png' alt="Weather data by WeatherAPI.com" border="0"></a>
+          </div>
+        </div>
+
+        <div class="col col2">
+          <h3>Get In Touch</h3>
+          <ul>
+            <li><a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/pragathishwaran-v-998352219/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
+            <li><a href="https://github.com/pragathish07" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+          </ul>
+
+          
+          <p>&copy; All Copyright Reserved</p>
+
+        </div>
+        </div>
+
+        </div>
+      </footer>
+      
+    </section>
+
+
+</body>
+<script src="app.js"></script>
+
+</html>
